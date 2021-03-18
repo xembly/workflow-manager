@@ -1,0 +1,41 @@
+{
+  "name": "agent-zero",
+  "version": "1.0.0",
+  "description": "Agent Zero: GitHub Action Job Bootstrapper",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "ncc build src/main.ts -o dist --source-map --license licenses.txt",
+    "test": "jest",
+    "all": "npm run lint && npm run prepare && npm run test",
+    "prerelease": "npm run prepare",
+    "release": "git tag -d v1 && git push origin :refs/tags/v1 && git commit -a --amend && git tag v1 && git push -f && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xembly/agent-zero.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript"
+  ],
+  "author": "Xembly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xembly/agent-zero/issues"
+  },
+  "homepage": "https://github.com/xembly/agent-zero#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.5",
+    "@actions/github": "^4.0.0",
+    "del": "^6.0.0",
+    "make-dir": "^3.1.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.27.0",
+    "eslint": "^7.22.0",
+    "jest": "^26.6.3",
+    "typescript": "^4.2.3"
+  }
+}

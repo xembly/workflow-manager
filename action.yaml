@@ -1,0 +1,22 @@
+name: Agent Zero
+description: |
+  A GitHub action job bootstrapper that allows for various options.
+
+  - `Clean Workspace`: Removes any old workspace files and directories while leaving runner cache intact.
+  - `Cancel Workflows`: Cancels any previous runs that are not `completed` for the current workflow.
+author: xembly
+inputs:
+  token:
+    description: |
+      Use `secrets.GITHUB_TOKEN` as this token is provided by GitHub Actions, you do not need to create your own token.
+      Only required if running the `cancel` option.
+  run:
+    description: 'A comma separated list of helper functions to run. Valid options are: clean, cancel'
+    default: clean
+  verbose:
+    description: Outputs addition logs during execution.
+    default: false
+runs:
+  using: node12
+  main: dist/index.js
+  post: dist/index.js
