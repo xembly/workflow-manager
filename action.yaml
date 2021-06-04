@@ -1,10 +1,9 @@
-name: Agent Zero
-description: |
-  A GitHub action job bootstrapper that allows for various options.
-
-  - `Clean Workspace`: Removes any old workspace files and directories while leaving runner cache intact.
-  - `Cancel Workflows`: Cancels any previous runs that are not `completed` for the current workflow.
-author: xembly
+name: Workflow Manager
+description: A helper action that can manage self hosted runner cleanup and workflow cancellations.
+author: Xembly
+branding:
+  icon: user-check
+  color: gray-dark
 inputs:
   token:
     description: |
