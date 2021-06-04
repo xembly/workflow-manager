@@ -20965,13 +20965,11 @@ async function cancelWorkflows() {
             workflow_id,
             refName: refName,
         });
-        const branchWorkflows = data.workflow_runs.filter(run => run.head_branch === refName);
-        core.info(`Found ${branchWorkflows.length} runs for workflow ${workflow_id} from ref ${refName}`);
-        core.info(branchWorkflows.map(run => `- ${run.html_url} :: ${run.status} :: ${run.created_at} :: ${run.head_sha} :: ${run.run_number}`).join('\n'));
-        const runningWorkflows = branchWorkflows.filter(run => run.run_number !== current_run.run_number &&
+        const runningWorkflows = data.workflow_runs.filter(run => run.head_branch === refName &&
+            run.run_number !== current_run.run_number &&
             run.status !== 'completed' &&
             new Date(run.created_at) < new Date(current_run.created_at));
-        core.info(`with ${runningWorkflows.length} runs to cancel from ${headSha} at ${current_run.created_at} by ${current_run.run_number}.`);
+        core.info(`Found ${runningWorkflows.length} runs to cancel.`);
         await Promise.all(runningWorkflows.map(async ({ id, head_sha, status, html_url }) => {
             if (isVerbose)
                 core.info('Canceling run: ' + JSON.stringify({ id, head_sha, status, html_url }));
