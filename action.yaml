@@ -10,12 +10,15 @@ inputs:
     description: |
       Use `secrets.GITHUB_TOKEN` as this token is provided by GitHub Actions, you do not need to create your own token.
       Only required if running the `cancel` option.
+    required: false
   run:
     description: 'A comma separated list of helper functions to run. Valid options are: clean, cancel'
     default: clean
+    required: false
   verbose:
     description: Outputs addition logs during execution.
-    default: false
+    default: 'false'
+    required: false
 runs:
   using: node12
   main: dist/index.js

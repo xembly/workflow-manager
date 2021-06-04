@@ -1,6 +1,6 @@
 import { context } from '@actions/github';
 
-let [_, __, ...ref] = (context.payload.pull_request
+const [_, __, ...ref] = (context.payload.pull_request
 	? context.payload.pull_request.head.ref
 	: context.payload.workflow_run
 		? context.payload.workflow_run.head_branch

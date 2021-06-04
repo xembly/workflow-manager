@@ -9,7 +9,7 @@ export const isPost = core.getState('isPost') === 'true';
 /**
  * The executing directory for the current workspace.
  */
-export const workspaceDirectory = process.env['GITHUB_WORKSPACE']!;
+export const workspaceDirectory = process.env['GITHUB_WORKSPACE']!;  // tslint:disable-line:no-string-literal
 
 /**
  * The root '_work' directory of the runner.
