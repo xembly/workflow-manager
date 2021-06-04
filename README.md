@@ -41,7 +41,7 @@ A helper action that can manage self hosted runner cleanup and workflow cancella
 ```yaml
 uses: xembly/workflow-manager@v1
 with:
-  token: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Github Actions, you do not need to create your own token.
-  run: clean, cancel  # Optional, Default: clean, cancel.
-  verbose: true # Optional, Default: false.
+  token: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Github Actions, you do not need to create your own token
+  run: clean, cancel  # Optional, Default: clean
+  verbose: true # Optional, Default: false
 ```
