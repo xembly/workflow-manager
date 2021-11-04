@@ -8,6 +8,8 @@ const [_, __, ...ref] = (context.payload.pull_request
 	).split('/');
 export const refName = ref.join('/');
 
+export const refType = context.ref.match(/\/tags\//) ? 'tag' : 'branch';
+
 export const headSha = context.payload.pull_request
 	? context.payload.pull_request.head.sha
 	: context.payload.workflow_run
