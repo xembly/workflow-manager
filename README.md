@@ -35,6 +35,7 @@ A helper action that can manage self hosted runner cleanup and workflow cancella
 
 ### Outputs
 - `REF_NAME`: The branch or tag name if ref is from a tag push. (this is set as an environment variable)
+- `REF_TYPE`: Denotes if the REF is a 'tag' or 'branch'. (this is set as an environment variable)
 
 ### Example Usage
 

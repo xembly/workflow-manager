@@ -43,7 +43,7 @@ export async function cancelWorkflows() {
 				run_id: id
 			});
 		}));
-	} catch (e) {
+	} catch (e: any) {
 		const msg = e.message || e;
 		core.warning(`Error while canceling workflow_id ${workflow_id}: ${msg}`);
 	}

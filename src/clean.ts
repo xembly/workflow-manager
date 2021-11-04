@@ -18,7 +18,7 @@ export async function clean() {
 		const files = await del(paths, { force: true });
 		if (isVerbose) core.info(`isPost: ${(isPost ? 'yes' : 'no')}`);
 		if (isVerbose) core.info('Files: ' + JSON.stringify(files, null, '  '));
-	} catch (error) {
+	} catch (error: any) {
 		core.setFailed(error.message);
 	}
 
@@ -27,7 +27,7 @@ export async function clean() {
 			// need to rebuild workspace in pre-action
 			core.info(`Rebuilding Workspace: ${workspaceDirectory}`);
 			await makeDir(workspaceDirectory);
-		} catch (error) {
+		} catch (error: any) {
 			core.setFailed(error.message);
 		}
 	}
