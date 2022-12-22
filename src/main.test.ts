@@ -1,8 +1,8 @@
-// const { expect } = require("@jest/globals");
+import { expect } from "@jest/globals";
 
-// test('ok', () => {
-// 	expect(true);
-// });
+test('ok', () => {
+	expect(true);
+});
 
 // const wait = require('./wait');
 // const process = require('process');

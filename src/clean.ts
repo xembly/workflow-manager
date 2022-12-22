@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import del from 'del';
+import { deleteAsync as del } from 'del';
 import makeDir from 'make-dir';
 
 import { isPost, rootDirectory, workspaceDirectory } from './helpers/state';
